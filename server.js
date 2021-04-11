@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require("express");
-const exphbs = require('express-handlebars')
 const mongoose = require("mongoose");
 require('dotenv').config({ path: '.env'})
 
@@ -15,8 +14,6 @@ app.use(express.static("public"));
 
 
 app.set('views', path.join(__dirname, 'views'))
-// app.engine('handlebars', exphbs({defaultLayout: 'main'}))
-// app.set('view engine', 'handlebars')
 
 app.use('/exercise', require('./controller/apiroutes'))
 app.use('/', require('./controller/htmlroutes'))
@@ -34,7 +31,7 @@ app.listen(PORT, () => {
 });
 
 
-// add routes
-// html routes
+// API routes
+// html routes --- done? 3 files, 3 get routes
 // check how they have fetch/post
     // api/routes/stuffhere
