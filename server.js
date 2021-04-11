@@ -35,3 +35,4 @@ app.listen(PORT, () => {
 // html routes --- done? 3 files, 3 get routes
 // check how they have fetch/post
     // api/routes/stuffhere
+// seeds - current error "deleteMany is not a function"
