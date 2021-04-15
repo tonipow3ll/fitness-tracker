@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 require('dotenv').config({ path: '.env'})
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || process.env.MONGO_URI;
 
 const app = express();
 
@@ -23,8 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
-// // routes
-// app.use(require("./routes/api.js"));
+
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
