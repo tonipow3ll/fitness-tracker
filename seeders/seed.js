@@ -1,7 +1,6 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 let Workout = require('../models/Workout');
-// let Exercise = require('../models/Exercise');
 const path = require('path')
 require('dotenv').config('.env');
 
