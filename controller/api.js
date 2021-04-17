@@ -1,13 +1,14 @@
 const { response } = require('express');
 const express = require('express');
 const path = require('path');
-const { Workout } = require('../models/Workout');
+const  Workout = require('../models/Workout');
 const db = require('../models');
 const router = express.Router();
 
 // get route for all exercises
 router.get('/api/workouts/range', (req, res) => {
-    db.Workout.find({})
+    console.log('hellloooo')
+    Workout.find({})
         .then((dbWorkouts) => {
             console.log(dbWorkouts)
             res.json(dbWorkouts)
@@ -15,7 +16,7 @@ router.get('/api/workouts/range', (req, res) => {
 });
 // get route for all workouts
 router.get('/api/workouts', (req, res) => {
-    db.Workout.find({})
+    Workout.find({})
         .then((dbWorkouts) => {
             console.log(dbWorkouts)
             res.json(dbWorkouts)
@@ -23,16 +24,14 @@ router.get('/api/workouts', (req, res) => {
 })
 
 
+router.post("/api/workouts", ({ body }, res) => {
+    console.log(body);
 
-router.post('/workouts', (req, res) => {
-    db.Workout.insertOne({
-        type: req.body.type,
-        name: req.body.name,
-        duration: req.body.duration,
-        weight: req.body.weight,
-        reps: rep.body.reps,
-        sets: req.body.sets
-    })
+    Workout.create(body).then((dbWorkout => {
+        res.json(dbWorkout);
+    })).catch(err => {
+        res.json(err);
+    });
 });
 
 router.put('/api/workouts/:id', (req, res) => {

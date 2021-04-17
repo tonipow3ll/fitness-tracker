@@ -1,7 +1,7 @@
 # Fitness Tracker 
 ### ![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)
 ### An application that tracks allows users to track their fitness goals
-# ![ScreenShot](https://user-images.githubusercontent.com/72999798/115122909-86bf8880-9f88-11eb-979d-cefd3499bfc3.png)
+# ![ScreenShot](https://user-images.githubusercontent.com/72999798/115123542-88d71680-9f8b-11eb-984c-f04a3b552104.png)
 # [View the Deployed Application Here](https://fitnesstracker137.herokuapp.com/)
 
 # Table of Contents

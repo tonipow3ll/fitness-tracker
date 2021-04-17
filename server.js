@@ -15,8 +15,8 @@ app.use(express.static("public"));
 
 app.set('views', path.join(__dirname, 'views'))
 
-app.use('/workouts', require('./controller/api'))
-app.use('/', require('./controller/htmlroutes'))
+app.use( require('./controller/api'))
+app.use( require('./controller/htmlroutes'))
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
