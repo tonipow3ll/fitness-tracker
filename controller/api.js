@@ -7,7 +7,6 @@ const router = express.Router();
 
 // get route for all exercises
 router.get('/api/workouts/range', (req, res) => {
-    console.log('hellloooo')
     Workout.find({})
         .then((dbWorkouts) => {
             console.log(dbWorkouts)
@@ -16,6 +15,7 @@ router.get('/api/workouts/range', (req, res) => {
 });
 // get route for all workouts
 router.get('/api/workouts', (req, res) => {
+    
     Workout.find({})
         .then((dbWorkouts) => {
             console.log(dbWorkouts)
@@ -26,6 +26,7 @@ router.get('/api/workouts', (req, res) => {
 
 router.post("/api/workouts", ({ body }, res) => {
     console.log(body);
+    console.log(body.exercises)
 
     Workout.create(body).then((dbWorkout => {
         res.json(dbWorkout);
@@ -35,13 +36,17 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.put('/api/workouts/:id', (req, res) => {
-    Workout.findByIdAndUpdate(
-        exerciseId,
-        { $push: { exercises: exerciseInfo } },
-        { new: true }
-    ).then((chosenWorkout) => {
-        res.json(chosenWorkout)
-    })
+    Workout.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+            $inc: { totalDuration: req.body.duration },
+            $push: { exercises: req.body }
+        },
+        { new: true }).then(dbWorkout => {
+            res.json(dbWorkout);
+        }).catch(err => {
+            res.json(err);
+        });
 });
 
 
