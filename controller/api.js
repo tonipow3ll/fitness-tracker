@@ -6,23 +6,19 @@ const db = require('../models');
 const router = express.Router();
 
 // get route for all exercises
-router.get('/exercise', (req, res) => {
-    db.Workout.find({}, (err, workouts) => {
-        try {
-            res.json(Exercise)
-        } catch (err) {
-            res.json(err)
-        }
+router.get('/api/workouts/range', (req, res) => {
+    db.Workout.find({})
+    .then((dbWorkouts) =>{
+        console.log(dbWorkouts)
+        res.json(dbWorkouts)
     })
 });
 // get route for all workouts
-router.get('/workout', (req, res) => {
-    db.Workout.find({}, (err, workouts) => {
-        try{
-            res.json(Workout)
-        } catch (err) {
-            res.json(err)
-        }
+router.get('/api/workouts', (req, res) => {
+          db.Workout.find({})
+    .then((dbWorkouts) =>{
+        console.log(dbWorkouts)
+        res.json(dbWorkouts)
     })
 })
 

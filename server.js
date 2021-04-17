@@ -20,7 +20,8 @@ app.use('/', require('./controller/htmlroutes'))
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 
