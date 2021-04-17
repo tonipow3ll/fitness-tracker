@@ -1,7 +1,7 @@
 const { response } = require('express');
 const express = require('express');
 const path = require('path');
-const { Exercise } = require('../models');
+const { Exercise } = require('../models/Exercise');
 const { Workout } = require('../models/Workout');
 // const exercise = require('../models/Exercise');
 const db = require('../models');

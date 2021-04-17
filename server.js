@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use('/exercise', require('./controller/apiroutes'))
 app.use('/', require('./controller/htmlroutes'))
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false
 });
