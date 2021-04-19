@@ -6,12 +6,14 @@ const db = require('../models');
 const router = express.Router();
 
 // get route for all exercises
-router.get('/api/workouts/range', (req, res) => {
-    Workout.find({})
-        .then((dbWorkouts) => {
-            console.log(dbWorkouts)
-            res.json(dbWorkouts)
-        })
+router.get('/api/workouts/range', async (req, res) => {
+    const workoutData = await db.Workout.aggregate([
+        {$set: {
+            totalDuration: {$sum: "$exercises.duration"}
+        }},
+        console.log(workoutData)
+    ])
+    res.status(200).json(workoutData)
 });
 // get route for all workouts
 router.get('/api/workouts', (req, res) => {
